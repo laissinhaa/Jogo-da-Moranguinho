@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da  Moranguinho</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="game">
+        <img src="moranguinho.png" class="moranguinho">
+        <img src="nuvem.png" class="nuvem">
+        <img src="morango.gif" class="morango">
+        <img src="sol.png" class="sol">
+        <div class="game-over">
+            <h1>GAME OVER</h1>
+            <button id="restart-button">Reiniciar Jogo</button>
+        </div>
+
+        <!-- Exibição da pontuação e dos pulos -->
+        <div id="hud">
+            <div>Tempo: <span id="score">0</span></div>
+            <div>Pulos: <span id="jumpCount">0</span></div>
+        </div>
+    </div>
+    <script src="jogo.js"></script>
+</body>
+</html>
+
