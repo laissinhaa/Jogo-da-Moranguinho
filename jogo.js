@@ -27,31 +27,33 @@ const jump = () => {
 // Atualiza a pontuação a cada segundo
 const updateScore = setInterval(() => {
     score++;
-    scoreDisplay.textContent = score; // Exibe a pontuação atualizada
+    scoreDisplay.textContent = score; 
 }, 1000);
 
-// Verifica colisões e para o jogo em caso de impacto
 const loop = setInterval(() => {
     const morangoPosition = morango.offsetLeft;
     const moranguinhoPosition = +window.getComputedStyle(moranguinho).bottom.replace('px', '');
 
-    // Verifica se houve colisão
+
     if (morangoPosition <= 125 && morangoPosition > 0 && moranguinhoPosition < 60) {
         morango.style.animation = 'none';
         morango.style.left = `${morangoPosition}px`;
 
-        moranguinho.style.display = 'none'; // Oculta a Moranguinho
-        gameOverScreen.style.display = 'block'; // Exibe a tela de Game Over
+        moranguinho.style.display = 'none'; 
+        gameOverScreen.style.display = 'block'; 
 
-        clearInterval(loop); // Para o loop de colisão
-        clearInterval(updateScore); // Para a contagem de pontos
+        clearInterval(loop); 
+        clearInterval(updateScore); 
     }
 }, 10);
 
-// Reinicia o jogo ao clicar no botão
 restartButton.addEventListener('click', () => {
-    location.reload(); // Recarrega a página para reiniciar o jogo
+    location.reload(); 
 });
 
-// Adiciona evento de pulo ao pressionar uma tecla
-document.addEventListener('keydown', jump);
+document.addEventListener('keydown', (event) => {
+    if (event.code === 'Space') {
+        event.preventDefault(); // Impede que a página desça
+        jump();
+    }
+});
